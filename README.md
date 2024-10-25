@@ -1,6 +1,8 @@
 # obligatorio-2024
 #Clase base para Aventurero: representamos todas las caracteristicas (atributos) de los aventureros
+
 class Aventurero:
+
     def __init__(self, nombre, id, puntos_habilidad, experiencia, dinero): #Creamos en aventurero
         if not (1<=puntos_habilidad<=1000):
             print ("Puntos de habilidad mayores a 1000")
@@ -11,14 +13,18 @@ class Aventurero:
         self.dinero = dinero
 
 # Clase derivada para Guerrero, añade característica a guerrero
+
 class Guerrero(Aventurero):
+
     def __init__(self, nombre, id, puntos_habilidad, experiencia, dinero, fuerza):
         super().__init__(nombre, id, puntos_habilidad, experiencia, dinero) #hereda las caracteristicas de de aventurero
         self.fuerza = fuerza #agrega atributo
         if not (1<=fuerza<=100):
             print ("Fuerza mayor a 100")
 # Clase derivada para Mago
+
 class Mago(Aventurero):
+
     def __init__(self, nombre, id, puntos_habilidad, experiencia, dinero, mana):
         super().__init__(nombre, id, puntos_habilidad, experiencia, dinero) #llamamos al constructor de la clase aventurero
         self.mana = mana #agregamos poder magico
@@ -27,7 +33,9 @@ class Mago(Aventurero):
         
 
 # Clase para Mascota
+
 class Mascota:
+
     def __init__(self, nombre, puntos_habilidad):
         self.nombre = nombre
         self.puntos_habilidad = puntos_habilidad
@@ -36,7 +44,9 @@ class Mascota:
         
 
 # Clase derivada para Ranger
+
 class Ranger(Aventurero):
+
     def __init__(self, nombre, id, puntos_habilidad, experiencia, dinero, mascota=None):
         super().__init__(nombre, id, puntos_habilidad, experiencia, dinero)
         self.mascota = mascota
