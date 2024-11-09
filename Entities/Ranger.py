@@ -8,5 +8,5 @@ class Ranger(Aventurero):
         super().__init__(nombre, id, puntos_habilidad, experiencia, dinero)
         self.mascota = mascota
 
-    def asignar_mascota(self, mascota):
+    def setmascota(self, mascota):
         self.mascota = mascota
