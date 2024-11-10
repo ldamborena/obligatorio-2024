@@ -11,3 +11,4 @@ class Aventurero:
         
         # if not (1<=puntos_habilidad<=1000):
         #     print ("Puntos de habilidad mayores a 1000")
+        
