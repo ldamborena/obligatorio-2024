@@ -68,7 +68,92 @@ class Gremio:
             raise EntidadYaExiste("La mision ya se encuentra registrada.")
         
         self.misiones.append(nueva_mision)
-        
 
+    def rango_minimo_habilidad(rango):
+     #Devuelve el valor mínimo de habilidad total para cada rango
+        if rango == 1:
+            return 1
+        elif rango == 2:
+            return 21
+        elif rango == 3:
+             return 41
+        elif rango == 4:
+            return 61
+        elif rango == 5:
+            return 81
+
+    def obtener_experiencia(rango_mision):
+    #Asigna experiencia dependiendo del rango de la misión
+        if rango_mision == 1:
+            return 5
+        elif rango_mision == 2:
+            return 10
+        elif rango_mision == 3:
+            return 20
+        elif rango_mision == 4:
+            return 50
+        elif rango_mision == 5:
+            return 100
+
+    def realizar_mision(gremio, mision):
+    participantes = []
+    recompensa_total = mision.recompensa
+    rango_mision = mision.rango
+    
+    # Verificamos si la misión es individual o grupal
+    if mision.tipo_mision == "Grupal":
+        while True:
+            # Pedimos el ID del aventurero
+            id_aventurero = int(input("Ingrese el ID del aventurero: "))
+            # Buscamos el aventurero por ID
+            aventurero = next((a for a in gremio.aventureros if a.id == id_aventurero), None)
+            
+            if not aventurero:
+                print("Aventurero no encontrado. Intente de nuevo.")
+                continue
+            
+            # Validamos el rango del aventurero
+            if not validar_rango(aventurero, rango_mision):
+                print(f"El aventurero {aventurero.nombre} no cumple con el rango mínimo de la misión.")
+            else:
+                participantes.append(aventurero)
+                print(f"Aventurero {aventurero.nombre} agregado a la misión.")
+            
+            # Preguntamos si queremos registrar otro aventurero
+            otra_opcion = input("¿Registrar otro aventurero? (S/N): ").strip().upper()
+            if otra_opcion == "N":
+                break
+        
+    elif mision.tipo_mision == "Individual":
+        # Para misiones individuales solo se asigna un aventurero
+        id_aventurero = int(input("Ingrese el ID del aventurero: "))
+        aventurero = next((a for a in gremio.aventureros if a.id == id_aventurero), None)
+        
+        if not aventurero:
+            print("Aventurero no encontrado.")
+        elif not validar_rango(aventurero, rango_mision):
+            print(f"El aventurero {aventurero.nombre} no cumple con el rango mínimo de la misión.")
+        else:
+            participantes.append(aventurero)
+            print(f"Aventurero {aventurero.nombre} agregado a la misión.")
+    
+    # Si todos los aventureros cumplen los requisitos, completamos la misión
+    if len(participantes) > 0:
+        for aventurero in participantes:
+            # Repartimos la recompensa entre todos los participantes
+            recompensa = recompensa_total / len(participantes)
+            aventurero.dinero += recompensa
+            print(f"Recompensa de {recompensa} repartida al aventurero {aventurero.nombre}.")
+            
+            # Asignamos experiencia al aventurero
+            experiencia = obtener_experiencia(rango_mision)
+            aventurero.experiencia += experiencia
+            print(f"{aventurero.nombre} recibe {experiencia} puntos de experiencia.")
+        
+        # Cambiamos el estado de la misión a completada
+        mision.completado = True
+        print(f"Misión {mision.nombre} completada con éxito.")
+    else:
+        print("Ningún aventurero cumple con los requisitos para la misión.")
             
     
