@@ -7,3 +7,6 @@ class Misiones:
         self.recompensa = recompensa
         self.completado = completado
         self.tipo_mision = tipo_mision
+        
+     def __eq__(self, other):
+        return self.nombre == other.nombre
