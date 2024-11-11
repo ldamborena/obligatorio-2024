@@ -101,7 +101,7 @@ class Gremio:
     rango_mision = mision.rango
     
     # Verificamos si la misión es individual o grupal
-    if mision.tipo_mision == "Grupal":
+    if mision.tipo_mision == "MisionGrupal":
         while True:
             # Pedimos el ID del aventurero
             id_aventurero = int(input("Ingrese el ID del aventurero: "))
@@ -120,11 +120,11 @@ class Gremio:
                 print(f"Aventurero {aventurero.nombre} agregado a la misión.")
             
             # Preguntamos si queremos registrar otro aventurero
-            otra_opcion = input("¿Registrar otro aventurero? (S/N): ").strip().upper()
+            otra_opcion = input("¿Registrar otro aventurero? (S/N): ").strip().upper()       
             if otra_opcion == "N":
                 break
         
-    elif mision.tipo_mision == "Individual":
+    elif mision.tipo_mision == "MisionIndividual":
         # Para misiones individuales solo se asigna un aventurero
         id_aventurero = int(input("Ingrese el ID del aventurero: "))
         aventurero = next((a for a in gremio.aventureros if a.id == id_aventurero), None)
