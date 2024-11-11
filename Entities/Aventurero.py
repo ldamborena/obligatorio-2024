@@ -11,4 +11,5 @@ class Aventurero:
         
         # if not (1<=puntos_habilidad<=1000):
         #     print ("Puntos de habilidad mayores a 1000")
-        
+    def __eq__(self, other):
+        return self.id == other.id  # Compara por el id, que es único para cada aventurero.
