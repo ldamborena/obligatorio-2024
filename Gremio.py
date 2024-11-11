@@ -30,12 +30,16 @@ class Gremio:
             nuevo_aventurero = Mago(nombre, id, puntos_habilidad, experiencia, dinero, atributos_adicionales)
             
         # Validación de datos de Ranger
-        if clase == "Ranger": # No entiendo que pasa si no tiene Mascota
-            if not isinstance(atributos_adicionales, Mascota):
-                raise DatosInvalidos("El atributo adicional debe ser del tipo mascota.")
-            if not (1 <= atributos_adicionales.puntos_habilidad <= 50):
-                raise DatosInvalidos("Los puntos de habilidad de la mascota deben estar entre 1 y 50.")
-            nuevo_aventurero = Ranger(nombre, id, puntos_habilidad, experiencia, dinero, atributos_adicionales)
+       if clase == "Ranger":
+            if atributos_adicionales is None:
+        # Si el Ranger no tiene mascota, lo asignamos como tal
+                nuevo_aventurero = Ranger(nombre, id, puntos_habilidad, experiencia, dinero)
+            elif isinstance(atributos_adicionales, Mascota):
+                if not (1 <= atributos_adicionales.puntos_habilidad <= 50):
+                    raise DatosInvalidos("Los puntos de habilidad de la mascota deben estar entre 1 y 50.")
+                    nuevo_aventurero = Ranger(nombre, id, puntos_habilidad, experiencia, dinero, atributos_adicionales)
+                else:
+                    raise DatosInvalidos("El atributo adicional debe ser del tipo mascota.")
 
             
         if nuevo_aventurero in self.aventureros:
