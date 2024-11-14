@@ -1,6 +1,6 @@
+from Gestion import Gestion
 from static.menus import options
-from static.Gremio import Gremio
-from exceptions.optionException import mainMenuException
+from Exceptions.optionException import mainMenuException
 
 def action(opcion_a, gremio):
     if opcion_a == "4":
@@ -34,7 +34,7 @@ def action(opcion_a, gremio):
 
 
 def main():
-    gremio_actual = Gremio()
+    gremio_actual = Gestion()
     while True:
         print(options["main"])
         opcion = input("Seleccione una opcion: ")

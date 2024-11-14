@@ -145,7 +145,7 @@ class Gestion:
         for aventurero in aventureros_registrados:
             aventurero.experiencia += puntos_experiencia
 
-     def top_10_aventureros_misiones(self):
+    def top_10_aventureros_misiones(self):
         if not self.aventureros:
             print ("no hay aventureros registrados")
             return
