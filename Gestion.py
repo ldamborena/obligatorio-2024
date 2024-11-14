@@ -153,4 +153,63 @@ class Gestion:
         print("Top aventureros con mas misiones resueltas:")
         for i, aventurero in enumerate(aventureros_ordenados[:10],start=1):
             print(f"{i}.{aventurero.nombre} - Misiones completadas: {aventurero.misiones_resueltas}")
+            
+
+    def ver_top_10_aventureros(self):
+        # Calcular la habilidad total para cada aventurero y ordenarlos
+        aventureros_habilidad = []
+
+        for aventurero in self.aventureros:
+            if isinstance(aventurero, Guerrero):
+                habilidad_total = aventurero.puntos_habilidad + (aventurero.fuerza / 2)
+            elif isinstance(aventurero, Mago):
+                habilidad_total = aventurero.puntos_habilidad + (aventurero.mana / 10)
+            elif isinstance(aventurero, Ranger):
+                habilidad_total = aventurero.puntos_habilidad
+                if aventurero.mascota:
+                    habilidad_total += aventurero.mascota.puntos_habilidad
+            else:
+                continue
+
+            aventureros_habilidad.append((aventurero, habilidad_total))
+
+        # Ordenar por habilidad total y luego por experiencia alfabéticamente en caso de empate
+        aventureros_habilidad.sort(key=lambda x: (-x[1], -x[0].experiencia))
+        
+        # Mostrar el top 10 aventureros
+        print("Top 10 Aventureros por Mayor Habilidad:")
+        for idx, (aventurero, habilidad) in enumerate(aventureros_habilidad[:10], start=1):
+            print(f"{idx}. {aventurero.nombre} - Habilidad Total: {habilidad}, Experiencia: {aventurero.experiencia}")
+
+    def ver_top_5_misiones(self):
+        # Ordenar misiones por recompensa, y alfabéticamente por nombre en caso de empate
+        misiones_ordenadas = sorted(self.misiones, key=lambda m: (-m.recompensa, m.nombre))
+        
+        # Mostrar el top 5 de misiones con mayor recompensa
+        print("Top 5 Misiones con Mayor Recompensa:")
+        for idx, mision in enumerate(misiones_ordenadas[:5], start=1):
+            print(f"{idx}. {mision.nombre} - Recompensa: {mision.recompensa}")
+
+    def menu(self):
+        while True:
+            print("\nMenú Principal")
+            print("1. Ver Top 10 Aventureros por Habilidad")
+            print("2. Ver Top 5 Misiones por Recompensa")
+            print("3. Registrar Aventurero")
+            print("4. Registrar Misión")
+            print("5. Realizar Misión")
+            print("6. Salir")
+            
+            opcion = input("Seleccione una opción: ")
+            
+            if opcion == "1":
+                self.ver_top_10_aventureros()
+            elif opcion == "2":
+                self.ver_top_5_misiones()
+            elif opcion == "6":
+                print("Saliendo del programa...")
+                break
+            else:
+                print("Opción no válida. Por favor, intente de nuevo.")
+            
                     
