@@ -11,8 +11,21 @@ Realizamos un simulador inspirado en Dungeons & Dragons,cuya finalidad es la de 
 
 ## Ejecución
 
+1) Clonar el repositorio:
 
-   git clone https://github.com/ldamborena/obligatorio-2024
-   cd <Obligatorio 2024>
-   python main.py
+git clone https://github.com/ldamborena/obligatorio-2024
+cd <obligatorio-2024>
+
+2)Ejecutar el archivo principal (main.py):
+
+python main.py
+
+3) Parámetros de entrada o configuración. Por ejemplo:
+
+main.py pide al usuario que introduzca un aventurero y una misión.
+Elige un tipo de aventurero (Guerrero, Mago, Ranger).
+Introduce las características de la misión (rango, recompensa, etc.).
+
+
+   
 
