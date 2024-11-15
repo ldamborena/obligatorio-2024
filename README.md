@@ -12,5 +12,7 @@ Realizamos un simulador inspirado en Dungeons & Dragons,cuya finalidad es la de 
 ## Ejecución
 
 
-   git clone <[URL_DEL_REPOSITORIO](https://github.com/ldamborena/obligatorio-2024)>
+   git clone https://github.com/ldamborena/obligatorio-2024
    cd <Obligatorio 2024>
+   python main.py
+
