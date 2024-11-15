@@ -1,6 +1,6 @@
 # Simulador de Gremio de Aventureros (Dungeons & Dragons)
 
-Este proyecto es un simulador inspirado en Dungeons & Dragons, diseñado para gestionar un gremio de aventureros. La aplicación permite registrar aventureros de distintas clases (Guerrero, Mago, y Ranger), asignarles misiones, y consultar datos sobre el gremio. El juego está implementado en Python y es ejecutado a través de un menú interactivo en la terminal.
+Realizamos un simulador inspirado en Dungeons & Dragons,cuya finalidad es la de gestionar un gremio de aventureros. Esta aplicación permite registrar diferentes tipos de aventureros (Guerrero, Mago, y Ranger), asignarles misiones, y consultar datos sobre el gremio. Fue realizado en Python y se ejecuta mediante una interfaz interactiva en la terminal.
 
 ## Características
 
