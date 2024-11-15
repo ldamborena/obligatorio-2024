@@ -2,6 +2,7 @@ from Gestion import Gestion
 from static.menus import options
 from Exceptions.optionException import mainMenuException
 
+
 def action(opcion_a, gremio):
     if opcion_a == "4":
         while True:

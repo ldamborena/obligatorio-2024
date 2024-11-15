@@ -65,6 +65,40 @@ class Gremio:
         
         self.misiones.append(nueva_mision)
         
+def mostrar_top_aventureros_misiones(self):
+    # Ordenar aventureros por misiones resueltas (descendente) y por nombre (ascendente)
+    top_aventureros = sorted(self.aventureros, key=lambda a: (-a.misiones_completadas, a.nombre))
+    print("\n--- Top 10 Aventureros con Más Misiones Resueltas ---")
+    for i, aventurero in enumerate(top_aventureros[:10], start=1):
+        print(f"{i}. {aventurero.nombre} - Misiones completadas: {aventurero.misiones_completadas}")
+
+def mostrar_top_aventureros_habilidad(self):
+    # Ordenar aventureros por habilidad total (descendente) y por nombre (ascendente)
+    top_aventureros = sorted(self.aventureros, key=lambda a: (-a.calcular_habilidad_total(), a.nombre))
+    print("\n--- Top 10 Aventureros con Mayor Habilidad ---")
+    for i, aventurero in enumerate(top_aventureros[:10], start=1):
+        print(f"{i}. {aventurero.nombre} - Habilidad total: {aventurero.calcular_habilidad_total()}")
+
+def mostrar_top_misiones_recompensa(self):
+    # Ordenar misiones por recompensa (descendente) y por nombre (ascendente)
+    top_misiones = sorted(self.misiones, key=lambda m: (-m.recompensa, m.nombre))
+    print("\n--- Top 5 Misiones con Mayor Recompensa ---")
+    for i, mision in enumerate(top_misiones[:5], start=1):
+        print(f"{i}. {mision.nombre} - Recompensa: {mision.recompensa}")
+
+def mostrar_aventureros_por_tipo(self):
+    # Agrupar aventureros por tipo y ordenar por nombre
+    print("\n--- Aventureros por Tipo ---")
+    tipos = {"Guerrero": [], "Mago": [], "Ranger": []}
+    for aventurero in self.aventureros:
+        tipos[type(aventurero).__name__].append(aventurero.nombre)
+    
+    for tipo, nombres in tipos.items():
+        print(f"\nTipo: {tipo}")
+        for nombre in sorted(nombres):
+            print(f"- {nombre}")
+        
+        
 
             
     
