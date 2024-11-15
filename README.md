@@ -11,7 +11,6 @@ Realizamos un simulador inspirado en Dungeons & Dragons,cuya finalidad es la de 
 
 ## Ejecución
 
-1. **Clonar el repositorio**: Clona el proyecto desde el repositorio de GitHub.
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd <NOMBRE_DEL_PROYECTO>
+
+   git clone <[URL_DEL_REPOSITORIO](https://github.com/ldamborena/obligatorio-2024)>
+   cd <Obligatorio 2024>
