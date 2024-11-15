@@ -1,6 +1,8 @@
 #Clase base para Aventurero: representamos todas las caracteristicas (atributos) de los aventureros
+from abc import ABC
 
-class Aventurero:
+
+class Aventurero(ABC):
 
     def __init__(self, nombre, id, puntos_habilidad, experiencia, dinero): #Creamos en aventurero
         self.nombre = nombre

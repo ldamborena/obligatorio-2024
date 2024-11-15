@@ -1,6 +1,7 @@
 # Mision.py
+from abc import ABC
 
-class Misiones:
+class Misiones(ABC):
     def __init__(self, nombre, rango, recompensa, completado, tipo_mision):
         self.nombre = nombre
         self.rango = rango
